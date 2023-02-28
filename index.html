@@ -1,269 +1,214 @@
-<!doctype html>
-<html lang="es-AR">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Basado en los templates publicados en la página oficial de Bootstrap -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/logo.png">
+    <title>PayRoller</title>
 
-  <title>PayRoller</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Bootstrap v.5.0.2 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
 
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="./css/styles.css">
+    <!-- Darkmode localStorage -->
+    <script src="./js/darkmode/localStorage.js"></script>
 </head>
 
-<body>
+<body class="bg-white dark:bg-gray-800">
 
-  <header class="navbar navbar-dark sticky-top bg-dark p-0 mw-1 shadow myNewDivHeight">
-    <div class="col-md-3 col-lg-2 me-0 my-2" style="text-align: center;">
-      <img src="./assets/logo/logo.png" width="141" height="41">
-    </div>
+    <nav class="fixed top-0 z-50 w-full bg-gray-100 border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <div class="px-3 py-3 lg:px-5 lg:pl-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center justify-start">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                        aria-controls="logo-sidebar" type="button"
+                        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                            </path>
+                        </svg>
+                    </button>
 
-    <!-- Menú responsivo -->
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="btn-group">
-      <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        <span data-feather="user" class="align-text-bottom"></span>
-        Rodrigo Casas
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">
-            Perfil
-          </a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li>
-          <a class="dropdown-item" href="#" style="color:red">
-            <!-- <i class="fa-solid fa-person-running"></i> -->
-            <span data-feather="x-circle" class="align-text-bottom"></span>
-            Cerrar sesión
-          </a>
-        </li>
-      </ul>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="navbar-nav mx-2">
-      <div class="nav-item">
-        
-
-        <span style="color:white">Usuario ></span>
-
-
-
-      </div>
-    </div>
-  </header>
-
-  <div class="container-fluid">
-    <div class="row">
-
-      <!-- BARRA LATERAL -->
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3 sidebar-sticky">
-          <ul class="nav flex-column">
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" onclick="seleccionMenu('menu-home')"
-                id='menu-home'>
-                <span data-feather="home" class="align-text-bottom"></span>
-                Inicio
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#empleados-actions">
-                <span data-feather="users" class="align-text-bottom"></span>
-                Empleados
-              </a>
-
-              <div class="collapse mx-3" id="empleados-actions">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="seleccionMenu('menu-empl-query')" id='menu-empl-query'>
-                      <span data-feather="list" class="align-text-bottom"></span>
-                      Consulta
+                    <a href="#" onclick="refreshPage()" class="flex ml-2 md:mr-24">
+                        <img src="./assets/logo.png" class="h-8 mr-3" />
+                        <span
+                            class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">PayRoller</span>
                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="seleccionMenu('menu-empl-crud')" id='menu-empl-crud'>
-                      <span data-feather="database" class="align-text-bottom"></span>
-                      Administración
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#novedades-actions">
-                <span data-feather="layers" class="align-text-bottom"></span>
-                Novedades
-              </a>
-
-              <div class="collapse mx-3" id="novedades-actions">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="seleccionMenu('menu-news-query')" id='menu-news-query'>
-                      <span data-feather="list" class="align-text-bottom"></span>
-                      Consulta
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="seleccionMenu('menu-news-crud')" id='menu-news-crud'>
-                      <span data-feather="database" class="align-text-bottom"></span>
-                      Administración
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="seleccionMenu('menu-liqui')" id='menu-liqui'>
-                <span data-feather="dollar-sign" class="align-text-bottom"></span>
-                Liquidación
-              </a>
-            </li>
-
-          </ul>
-        </div>
-      </nav>
-
-      <!-- PARTE CENTRAL -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
-        <!-- TITULOS Y COMANDOS DE ARRIBA -->
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Empleados</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex items-center ml-3">
+                        <button id="theme-toggle" type="button"
+                            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5 mr-2">
+                            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                    fill-rule="evenodd" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div>
+                            <button type="button"
+                                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="w-8 h-8 rounded-full" src="./assets/user.png" alt="user photo">
+                            </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                            id="dropdown-user">
+                            <div class="px-4 py-3" role="none">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white" role="none">
+                                    Rodri Casas
+                                </p>
+                                <p class="text-sm text-gray-900 truncate dark:text-gray-300" role="none">
+                                    cr.rodrigocasas@gmail.com
+                                </p>
+                            </div>
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Perfil</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">
+                                        <span style="color: rgb(214, 70, 70);">Cerrar sesión</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <span data-feather="calendar" class="align-text-bottom"></span>
-              Esta semana
-            </button>
-          </div>
         </div>
+    </nav>
 
-        <!-- ACA IBA EL CANVAS -->
-
-        <!-- TABLA -->
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>text</td>
-                <td>random</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>placeholder</td>
-              </tr>
-              <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>placeholder</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>irrelevant</td>
-              </tr>
-            </tbody>
-          </table>
+    <aside id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        aria-label="Sidebar">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+            <ul class="space-y-1">
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="dropdown-empleados" data-collapse-toggle="dropdown-empleados">
+                        <span data-feather="users"
+                            class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Empleados</span>
+                        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-empleados" class="hidden py-1 space-y-1">
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <span data-feather="list"
+                                    class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                                <span class="ml-3">Consulta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="cargarEmpleadosCrud()"
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <span data-feather="database"
+                                    class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                                <span class="ml-3">Administración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="dropdown-novedades" data-collapse-toggle="dropdown-novedades">
+                        <span data-feather="layers"
+                            class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Novedades</span>
+                        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-novedades" class="hidden py-1 space-y-1">
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <span data-feather="list"
+                                    class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                                <span class="ml-3">Consulta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <span data-feather="database"
+                                    class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                                <span class="ml-3">Administración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span data-feather="dollar-sign"
+                            class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
+                        <span class="ml-3">Liquidación</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 text-base font-normal text-blue-900 rounded-lg dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-700">
+                        <span data-feather="dollar-sign"
+                            class="w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white"></span>
+                        <span class="ml-3">Ejemplo seleccionado</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </main>
+    </aside>
+
+    <div class="p-4 sm:ml-64">
+        <div class="p-1 mt-12">
+            <div class="h-full h-full" id="canvas-contenido"></div>
+        </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <!-- JS SCRIPTS -->
 
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-    crossorigin="anonymous"></script>
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <!-- Darkmode toggle -->
+    <script src="./js/darkmode/toggle.js"></script>
 
-  <script src="./js/feather-icons.js"></script>
+    <!-- Feather icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="./js/icons/feather-icons.js"></script>
 
-  <script src="./js/menu-lateral.js"></script>
-
+    <!-- Funcionalidades -->
+    <script src="./js/components/empleados-crud.template.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
