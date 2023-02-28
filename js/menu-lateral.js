@@ -12,6 +12,8 @@ function seleccionMenu(menu) {
 
     if (menu === 'menu-empleados-admin') {
         cargarEmpleadosCrud()
+    } else if (menu === 'menu-empleados-consulta') {
+        cargarEmpleadosList()
     } else {
         limpiarContenedor()
     }
