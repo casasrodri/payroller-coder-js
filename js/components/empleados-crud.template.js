@@ -178,6 +178,10 @@ function frame1() {
 }
 
 function cargarEmpleadosCrud() {
-    document.getElementById('canvas-contenido').outerHTML = frame1()
+    document.getElementById('canvas-contenido').innerHTML = frame1()
     cargarIconosFeather()
+}
+
+function limpiarContenedor() {
+    document.getElementById('canvas-contenido').innerHTML = ""
 }

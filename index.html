@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-AR">
 
 <head>
     <meta charset="UTF-8">
@@ -100,7 +100,7 @@
         class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
         aria-label="Sidebar">
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-            <ul class="space-y-1">
+            <ul class="space-y-1" id="menu-lateral">
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -118,15 +118,19 @@
                     <ul id="dropdown-empleados" class="hidden py-1 space-y-1">
                         <li>
                             <a href="#"
-                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                id="menu-empleados-consulta"
+                                onclick="seleccionMenu('menu-empleados-consulta')">
                                 <span data-feather="list"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Consulta</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" onclick="cargarEmpleadosCrud()"
-                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            <a href="#"
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                id="menu-empleados-admin"
+                                onclick="seleccionMenu('menu-empleados-admin')">
                                 <span data-feather="database"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Administración</span>
@@ -151,7 +155,9 @@
                     <ul id="dropdown-novedades" class="hidden py-1 space-y-1">
                         <li>
                             <a href="#"
-                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                id="menu-novedades-consulta"
+                                onclick="seleccionMenu('menu-novedades-consulta')">
                                 <span data-feather="list"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Consulta</span>
@@ -159,7 +165,9 @@
                         </li>
                         <li>
                             <a href="#"
-                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                id="menu-novedades-admin"
+                                onclick="seleccionMenu('menu-novedades-admin')">
                                 <span data-feather="database"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Administración</span>
@@ -169,18 +177,12 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                        id="menu-liquidacion"
+                        onclick="seleccionMenu('menu-liquidacion')">
                         <span data-feather="dollar-sign"
                             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                         <span class="ml-3">Liquidación</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-base font-normal text-blue-900 rounded-lg dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-700">
-                        <span data-feather="dollar-sign"
-                            class="w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white"></span>
-                        <span class="ml-3">Ejemplo seleccionado</span>
                     </a>
                 </li>
             </ul>
@@ -189,7 +191,11 @@
 
     <div class="p-4 sm:ml-64">
         <div class="p-1 mt-12">
-            <div class="h-full h-full" id="canvas-contenido"></div>
+            <div class="h-full h-full" id="canvas-contenido">
+                <span class="text-gray-900 dark:text-white mt-10">
+                    Por el momento, sólo se puede consultar el menú <b>Empleados > Administración</b>.
+                </span>
+            </div>
         </div>
     </div>
 
@@ -208,6 +214,7 @@
 
     <!-- Funcionalidades -->
     <script src="./js/components/empleados-crud.template.js"></script>
+    <script src="./js/menu-lateral.js"></script>
     <script src="./js/main.js"></script>
 </body>
 
