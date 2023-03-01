@@ -2,7 +2,7 @@
 function contenedorCards(contenido) {
     // auto-cols-max
     return `
-    <div class="grid grid-cols-4 auto-rows-auto grid-flow-dense gap-5 mt-3 "> 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gid-cols-4 auto-rows-auto grid-flow-dense gap-5 mt-3 "> 
         ${contenido}
     </div>
     `
@@ -10,7 +10,7 @@ function contenedorCards(contenido) {
 
 function cardEmpleado(empleado) {
     return `
-    <div class="min-w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700 hover:brightness-125"
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700 hover:brightness-125"
         data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
         data-drawer-placement="right" aria-controls="drawer-right-example">
         <a href="#">
