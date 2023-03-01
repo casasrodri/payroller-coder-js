@@ -183,5 +183,20 @@ function cargarEmpleadosCrud() {
 }
 
 function limpiarContenedor() {
-    document.getElementById('canvas-contenido').innerHTML = ""
+    const notImplemented = `
+    <div class="flex grid my-15 place-content-center">
+        <div id="tarjeta-not-impl" class="grid rounded-md border-dotted border-2 border-orange-500 px-5">
+            <span data-feather="alert-triangle"
+                        class="w-16 h-16 text-yellow-300 transition duration-75 dark:text-yellow-100 hover:scale-150 place-self-center mt-5">
+            </span>
+
+            <span class="dark:text-white font-semibold my-4 text-center">
+                Esta función aún no se encuentra implementada.
+            </span>
+        </div>
+    </div>
+    `
+
+    document.getElementById('canvas-contenido').innerHTML = notImplemented
+    cargarIconosFeather()
 }
