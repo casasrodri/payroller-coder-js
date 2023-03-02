@@ -20,7 +20,48 @@
 
 <body class="bg-white dark:bg-gray-800">
 
-    <nav class="fixed top-0 z-50 w-full bg-gray-100 border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+
+    <!-- Modal - No implementado -->
+    <modal>
+        <a id="display-not-implemented" data-modal-target="popup-not-implemented"
+            data-modal-show="popup-not-implemented" class="hidden">
+        </a>
+
+        <div id="popup-not-implemented" tabindex="-1"
+            class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+            <div class="relative w-full h-full max-w-md md:h-auto">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button"
+                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                        data-modal-hide="popup-not-implemented">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                    <div class="p-6 text-center">
+                        <svg aria-hidden="true"
+                            class="mx-auto mb-4 text-yellow-400 w-14 h-14 dark:text-yellow-200 hover:scale-110"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Esta
+                            funcionalidad
+                            aún no se encuentra implementada!</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </modal>
+
+
+    <nav
+        class="fixed top-0 z-50 w-full bg-opacity-80 dark:bg-opacity-80 dark:bg-gray-900 bg-gray-100 hover:bg-opacity-100 border-b border-gray-200 dark:border-gray-700">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
@@ -119,8 +160,7 @@
                         <li>
                             <a href="#"
                                 class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                                id="menu-empleados-consulta"
-                                onclick="seleccionMenu('menu-empleados-consulta')">
+                                id="menu-empleados-consulta" onclick="seleccionMenu('menu-empleados-consulta')">
                                 <span data-feather="list"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Consulta</span>
@@ -129,8 +169,7 @@
                         <li>
                             <a href="#"
                                 class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                                id="menu-empleados-admin"
-                                onclick="seleccionMenu('menu-empleados-admin')">
+                                id="menu-empleados-admin" onclick="seleccionMenu('menu-empleados-admin')">
                                 <span data-feather="database"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Administración</span>
@@ -156,8 +195,7 @@
                         <li>
                             <a href="#"
                                 class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                                id="menu-novedades-consulta"
-                                onclick="seleccionMenu('menu-novedades-consulta')">
+                                id="menu-novedades-consulta" onclick="seleccionMenu('menu-novedades-consulta')">
                                 <span data-feather="list"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Consulta</span>
@@ -166,8 +204,7 @@
                         <li>
                             <a href="#"
                                 class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                                id="menu-novedades-admin"
-                                onclick="seleccionMenu('menu-novedades-admin')">
+                                id="menu-novedades-admin" onclick="seleccionMenu('menu-novedades-admin')">
                                 <span data-feather="database"
                                     class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                                 <span class="ml-3">Administración</span>
@@ -178,8 +215,7 @@
                 <li>
                     <a href="#"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                        id="menu-liquidacion"
-                        onclick="seleccionMenu('menu-liquidacion')">
+                        id="menu-liquidacion" onclick="seleccionMenu('menu-liquidacion')">
                         <span data-feather="dollar-sign"
                             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
                         <span class="ml-3">Liquidación</span>
@@ -192,37 +228,44 @@
     <div class="p-4 sm:ml-64">
         <div class="p-1 mt-12">
             <div class="h-full h-full" id="canvas-contenido">
+                <!---------------------------------->
+                <!-- ACÁ VA EL CONTENIDO DINÁMICO -->
+                <!---------------------------------->
             </div>
         </div>
-    </div>
 
-    <!-- JS SCRIPTS -->
+        <!-- JS SCRIPTS -->
 
-    <!-- Flowbite -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-    <!-- Darkmode toggle -->
-    <script src="./js/darkmode/toggle.js"></script>
+        <!-- Flowbite -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+        <!-- Darkmode toggle -->
+        <script src="./js/darkmode/toggle.js"></script>
 
-    <!-- Feather icons -->
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-        crossorigin="anonymous"></script>
-    <script src="./js/icons/feather-icons.js"></script>
+        <!-- Feather icons -->
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+            integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+            crossorigin="anonymous"></script>
+        <script src="./js/icons/feather-icons.js"></script>
 
-    <!-- Funcionalidades -->
-    <script src="./js/classes/empleado.js"></script>
-    <script src="./js/data/data.js"></script>
-    
-    <script src="./js/components/empleados-crud.template.js"></script>
+        <!-- Funcionalidades -->
+        <script src="./js/classes/empleado.js"></script>
+        <script src="./js/data/data.js"></script>
 
+        <script src="./js/components/empleados-crud.template.js"></script>
 
-
-    <!-- GUI -->
-    <script src="./js/gui/empleados-view.js"></script>
+        
+        <!-- GUI -->
+        <script src="./js/gui/empleados-view.js"></script>
 
 
-    <script src="./js/menu-lateral.js"></script>
-    <script src="./js/main.js"></script>
+        <script src="./js/menu-lateral.js"></script>
+        <script src="./js/main.js"></script>
+
+        <script>
+            // TESTING
+            // cargarEmpleadosCrud()
+        </script>
+
 </body>
 
 </html>
