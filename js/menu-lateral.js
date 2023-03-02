@@ -5,26 +5,27 @@ const menuSvgGris = "text-gray-500 dark:text-gray-400"
 
 const modalNotImpl = document.getElementById('display-not-implemented')
 
-function limpiarContenedor() {
+function modalNotImplemented() {
     modalNotImpl.click()
 }
 
 quitarTodasSelecciones()
 
 function seleccionMenu(menu) {
-    const submenu = document.getElementById(menu)
-    quitarTodasSelecciones()
-    estadoMenu(submenu, '+')
-
-    cerrarMenuLateral()
-
     if (menu === 'menu-empleados-admin') {
         cargarEmpleadosCrud()
     } else if (menu === 'menu-empleados-consulta') {
         cargarEmpleadosList()
     } else {
-        limpiarContenedor()
+        modalNotImplemented()
+        return
     }
+
+    const submenu = document.getElementById(menu)
+    quitarTodasSelecciones()
+    estadoMenu(submenu, '+')
+
+    cerrarMenuLateral()
 }
 
 function modEstilos(elemento, operacion, estilos) {
