@@ -10,6 +10,8 @@ function seleccionMenu(menu) {
     quitarTodasSelecciones()
     estadoMenu(submenu, '+')
 
+    cerrarMenuLateral()
+
     if (menu === 'menu-empleados-admin') {
         cargarEmpleadosCrud()
     } else if (menu === 'menu-empleados-consulta') {
@@ -56,4 +58,9 @@ function estadoMenu(menu, operacion) {
 function quitarTodasSelecciones() {
     const submenues = document.getElementById('menu-lateral').querySelectorAll('a')
     submenues.forEach( (menu) => { estadoMenu(menu, '-') })
+}
+
+const hambur = document.getElementById('btn-hamburguer')
+function cerrarMenuLateral() {
+    hambur.click()
 }
