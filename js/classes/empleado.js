@@ -1,5 +1,6 @@
 class Empleado {
-    constructor(nombre, apellido, cargo, sueldo, fechaIngreso, foto, cantidadHijos) {
+    constructor(legajo, nombre, apellido, cargo, sueldo, fechaIngreso, cantidadHijos, foto) {
+        this.legajo = legajo
         this.nombre = nombre
         this.apellido = apellido
         this.cargo = cargo

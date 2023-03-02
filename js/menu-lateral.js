@@ -3,6 +3,12 @@ const menuTextoGris = "text-gray-900 dark:text-white"
 const menuSvgAzul = "text-blue-500 dark:text-blue-500"
 const menuSvgGris = "text-gray-500 dark:text-gray-400"
 
+const modalNotImpl = document.getElementById('display-not-implemented')
+
+function limpiarContenedor() {
+    modalNotImpl.click()
+}
+
 quitarTodasSelecciones()
 
 function seleccionMenu(menu) {
@@ -60,7 +66,7 @@ function quitarTodasSelecciones() {
     submenues.forEach( (menu) => { estadoMenu(menu, '-') })
 }
 
-const hambur = document.getElementById('btn-hamburguer')
+const hambur = document.getElementById('btn-hamburguer-close')
 function cerrarMenuLateral() {
     hambur.click()
 }

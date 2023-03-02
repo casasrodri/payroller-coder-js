@@ -1,9 +1,5 @@
 function frame1() {
     return `
-
-    
-
-
     <div id="section-title" class="grid gap-3 grid-flow-col auto-cols-auto grid-flow-row auto-rows-min">
         <div id="cell-title" class="place-self-start">
             <h2 class="text-4xl dark:text-white mt-2">Empleados</h2>
@@ -177,11 +173,4 @@ function frame1() {
 function cargarEmpleadosCrud() {
     document.getElementById('canvas-contenido').innerHTML = frame1()
     cargarIconosFeather()
-}
-
-
-const modalNotImpl = document.getElementById('display-not-implemented')
-
-function limpiarContenedor() {
-    modalNotImpl.click()
 }
