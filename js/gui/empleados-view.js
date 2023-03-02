@@ -2,7 +2,7 @@
 function contenedorCards(contenido) {
     // auto-cols-max
     return `
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gid-cols-4 auto-rows-auto grid-flow-dense gap-5 mt-3 "> 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gid-cols-4 2xl:grid-cols-5 auto-rows-auto grid-flow-dense gap-5 mt-3 "> 
         ${contenido}
     </div>
     `

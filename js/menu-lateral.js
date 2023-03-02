@@ -66,7 +66,7 @@ function quitarTodasSelecciones() {
     submenues.forEach( (menu) => { estadoMenu(menu, '-') })
 }
 
-const hambur = document.getElementById('btn-hamburguer-close')
+const hambur = document.getElementById('btn-hamburguer')
 function cerrarMenuLateral() {
     hambur.click()
 }
