@@ -7,6 +7,7 @@ const modalNotImpl = document.getElementById('display-not-implemented')
 
 function modalNotImplemented() {
     modalNotImpl.click()
+    cerrarMenuLateral()
 }
 
 quitarTodasSelecciones()
