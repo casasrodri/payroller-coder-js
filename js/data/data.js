@@ -2,7 +2,7 @@
 // Simula los datos importados de una base de datos
 let empleados_db = [
     ['Pedro', 'Roite', 'Gerente', 482861.61, '2005-05-17', 2],
-    ['Paulo', 'Banegas', 'Analista Jr.', 236119.33, '1990-04-03', 2],
+    ['Paulo', 'Banegas', 'Analista Sr.', 236119.33, '1990-04-03', 2],
     ['Lucrecia', 'Lopez', 'Vendedor', 448544.77, '2020-03-27', 3],
     ['Dario', 'Juarez', 'Secretario', 280777.19, '1988-12-31', 3],
     ['Camila', 'Neyra', 'Operario', 307918.37, '1988-09-20', 4],
