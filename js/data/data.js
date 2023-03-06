@@ -47,6 +47,9 @@ function guardarEmpLS() {
 
 function getEmpleadosLS() {
     const json = localStorage.getItem('empleadosLS')
+
+    if (json === null) return
+
     const arr = JSON.parse(json)
 
     arr.forEach( e => e.fechaIngreso = new Date(e.fechaIngreso))
@@ -54,5 +57,8 @@ function getEmpleadosLS() {
 }
 
 function getAllEmpleados() {
+    const empLocalSto = getEmpleadosLS()
+
+    if (empLocalSto === undefined) return empleados
     return empleados.concat(getEmpleadosLS())
 }
