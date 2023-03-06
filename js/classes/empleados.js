@@ -1,5 +1,5 @@
 class Empleado {
-    constructor(legajo, nombre, apellido, cargo, sueldo, fechaIngreso, cantidadHijos, foto) {
+    constructor(legajo, nombre, apellido, cargo, sueldo, fechaIngreso, foto) {
         this.legajo = legajo
         this.nombre = nombre
         this.apellido = apellido
@@ -7,7 +7,6 @@ class Empleado {
         this.sueldo = sueldo
         this.fechaIngreso = new Date(fechaIngreso)
         this.foto = foto
-        this.cantidadHijos = cantidadHijos
     }
 
     antiguedad() {

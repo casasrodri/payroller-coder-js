@@ -41,6 +41,6 @@ function renderizarCardsEmpleados(setEmpleados) {
 }
 
 function cargarEmpleadosList() {
-    document.getElementById('canvas-contenido').innerHTML = renderizarCardsEmpleados(empleados)
+    document.getElementById('canvas-contenido').innerHTML = renderizarCardsEmpleados(getAllEmpleados())
     cargarIconosFeather()
 }

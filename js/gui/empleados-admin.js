@@ -1,7 +1,16 @@
 let listadoEmpleados = ""
 
+function cargarEmpleadosCrud(lista = getAllEmpleados()) {
 
-function frame1(listadoEmpleados) {
+    document.getElementById('canvas-contenido').innerHTML = paginaAdmin()
+    
+    // Se cargan los datos de los TODOS empleados
+    contenidoTabla()
+
+    document.getElementById('table-search').addEventListener('input', e => {buscar(e.target.value)})
+}
+
+function paginaAdmin() {
     return `
     <div class="relative">
     <div id="section-title" class="grid gap-3 grid-flow-col auto-cols-auto grid-flow-row auto-rows-min">
@@ -44,35 +53,25 @@ function frame1(listadoEmpleados) {
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                ${listadoEmpleados}
+            <tbody id="body-tabla-empleados">
+                <tr><td class="p-2">No hay elementos para mostrar.</td></tr>
             </tbody>
         </table>
     </div>
 
-    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onclick="modalNotImplemented()" data-modal-target="staticModal" data-modal-toggle="staticModal">Nuevo empleado</button>
+    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onclick="cargarFormNuevoEmpleado()">Nuevo empleado</button>
+    
+    <script>
+        const buscador = document.getElementById('table-search')
+        buscador.addEventListener('input', e => {
+            console.log(e);
+        })
+    </script>
     `
 }
 
-function cargarEmpleadosCrud() {
-
-    listadoEmpleados = ''
-
-    empleados.forEach( emp => {
-        listadoEmpleados += lineaEmpleado(emp)
-        console.log(emp);
-    });
-
-
-    document.getElementById('canvas-contenido').innerHTML = frame1(listadoEmpleados)
-    cargarIconosFeather()
-}
 
 function lineaEmpleado(emp) {
-    const nombre = 'Lopez, Gabriela Natalia'
-    const cargo = 'Operario'
-    const fecha = '02/03/1993'
-
     return `
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -82,7 +81,7 @@ function lineaEmpleado(emp) {
                 ${emp.cargo}
             </td>
             <td class="px-6 py-3">
-                ${emp.fechaIngreso.toLocaleDateString()     }
+                ${emp.fechaIngreso.toLocaleDateString()}
             </td>
             <td class="px-6 py-4">
                 <div class="inline-flex rounded-md shadow-sm" role="group">
@@ -101,6 +100,35 @@ function lineaEmpleado(emp) {
                 </div>
             </td>
         </tr>
-    ` 
+    `
 }
 
+function contenidoTabla(empleados=getAllEmpleados()){
+    let listaHTML = ''
+
+    if (empleados.length === 0) {
+        listaHTML = `<tr><td class="p-2">No hay empleados que cumplan con el criterio buscado.</td></tr>`
+    } else {
+        empleados.forEach(emp => listaHTML += lineaEmpleado(emp));
+    }
+
+    document.getElementById('body-tabla-empleados').innerHTML = listaHTML
+    cargarIconosFeather()
+}
+
+function buscar(texto) {
+
+    if (texto === "") {
+        contenidoTabla()
+        return
+    }
+
+    const listaMostrar = []
+
+    getAllEmpleados().forEach( e => {
+        const alcanceBusqueda = (e.nombre+ e.apellido + e.cargo).toUpperCase()
+        if (alcanceBusqueda.includes(texto.toUpperCase())) { listaMostrar.push(e) }
+    })
+
+    contenidoTabla(listaMostrar);
+}

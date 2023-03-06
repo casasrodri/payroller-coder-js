@@ -23,17 +23,16 @@
 
     <!-- Modal - No implementado -->
     <modal>
-        <a id="display-not-implemented" data-modal-target="popup-not-implemented"
-            data-modal-show="popup-not-implemented" class="hidden">
+        <a id="display-popup-rodri" data-modal-target="popup-rodri" data-modal-show="popup-rodri" class="hidden">
         </a>
 
-        <div id="popup-not-implemented" tabindex="-1"
+        <div id="popup-rodri" tabindex="-1"
             class="z-50 fixed top-0 left-0 right-0 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full" ">
             <div class=" relative w-full h-full max-w-md md:h-auto">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <button type="button"
                     class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                    data-modal-hide="popup-not-implemented">
+                    data-modal-hide="popup-rodri">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -43,15 +42,15 @@
                     <span class="sr-only">Close modal</span>
                 </button>
                 <div class="p-6 text-center">
-                    <svg aria-hidden="true"
-                        class="mx-auto mb-4 text-yellow-400 w-14 h-14 dark:text-yellow-200 hover:scale-110" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Oops! Esta
-                        funcionalidad
-                        aún no se encuentra implementada!</h3>
+                    <div id="svg-feather">
+                        <svg aria-hidden="true"
+                            class="mx-auto mb-4 text-yellow-400 w-14 h-14 dark:text-yellow-200 hover:scale-110"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 id="texto-popup" class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"></h3>
                 </div>
             </div>
         </div>
@@ -61,154 +60,7 @@
 
 
 
-    <!-- Modal - Nuevo Empleado -->
-    <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden p-3 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-        <div class="relative w-full h-full max-w-2xl md:h-auto">
 
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 pb-3">
-
-
-
-
-                <!-- Modal header (titulo y cruz) -->
-                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Nuevo empleado
-                    </h3>
-                    <button type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="staticModal">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-
-
-
-
-                <!-- Modal body -->
-                <div id="form-emp" class="flex w-full h-full p-2 justify-center">
-
-
-                    <!-- Zona IMAGEN -->
-                    <div id="zona-imagen" class="flex items-center justify-center mx-3">
-
-                        <!-- <label for="dropzone-file"
-                        class="flex flex-col items-center justify-center cursor-pointer">
-                        <img class="rounded w-36 h-36 object-cover" src="./assets/profile/7.jpg">
-                        <input id="dropzone-file" type="file" class="hidden" />
-                        </label> -->
-
-
-                        <label for="dropzone-file"
-                            class="flex flex-col items-center justify-center w-36 h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <span data-feather="arrow-up-circle"
-                                    class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></span>
-                            </div>
-                            <input id="dropzone-file" type="file" class="hidden" />
-                        </label>
-                    </div>
-
-
-                    <!-- FORMULARIO -->
-                    <div id="zona-formulario">
-                        <form>
-                            <div class="mb-3">
-                                <label for="nombre"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                                <input type="nombre" id="text"
-                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                                    placeholder="Nombre" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="apellido"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido</label>
-                                <input type="apellido" id="text"
-                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                                    placeholder="Apellido" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="cargo"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cargo</label>
-                                <select id="cargo"
-                                    class="shadow-sm dark:shadow-sm-light bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option></option>
-                                    <option>Analista Jr.</option>
-                                    <option>Analista Sr.</option>
-                                    <option>Gerente</option>
-                                    <option>Operario</option>
-                                    <option>Pasante</option>
-                                    <option>Repartidor</option>
-                                    <option>Secretario</option>
-                                    <option>Vendedor</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="fecha"
-                                    class="block text-sm font-medium text-gray-900 dark:text-white mb-2">Fecha
-                                    de ingreso</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <input datepicker type="text"
-                                        class="shadow-sm dark:shadow-sm-light bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="">
-                                </div>
-                            </div>
-                        </form>
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-                <!-- Modal Footer (botones) -->
-                <div
-                    class="flex items-center pt-3 px-2 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600 justify-end">
-                    <button data-modal-hide="staticModal" type="button"
-                        class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guardar</button>
-                    <button data-modal-hide="staticModal" type="button"
-                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600 dark:hover:bg-red-800 hover:bg-red-400">Cancelar</button>
-                </div><!-- Fin BOTONERA -->
-
-
-
-
-
-            </div><!-- FIN Modal content -->
-        </div>
-    </div>
 
 
     <nav
@@ -216,6 +68,8 @@
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
+                    <button id="hide-sidebar" class="hidden" data-drawer-target="logo-sidebar"
+                        data-drawer-toggle="logo-sidebar"></button>
                     <button id="btn-hamburguer" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
                         data-drawer-backdrop="false" aria-controls="logo-sidebar" type="button"
                         class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -382,17 +236,6 @@
                 <!---------------------------------->
                 <!-- ACÁ VA EL CONTENIDO DINÁMICO -->
                 <!---------------------------------->
-
-                <!-- Modal toggle -->
-                <button id="form-nvo-emp" data-modal-target="staticModal" data-modal-toggle="staticModal"
-                    class="hidden block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    type="button">
-                    Nuevo
-                </button>
-
-
-
-
             </div><!-- Fin CANVAS CONTENIDO -->
         </div>
     </div>
@@ -418,12 +261,13 @@
     <script src="./js/classes/empleados.js"></script>
     <script src="./js/data/data.js"></script>
 
-    
+
 
 
     <!-- GUI -->
+    <script src="./js/gui/popup.js"></script>
     <script src="./js/gui/empleados-view.js"></script>
-    <script src="./js/gui/empleados-crud.js"></script>
+    <script src="./js/gui/empleados-admin.js"></script>
     <script src="./js/gui/empleados-nuevo.js"></script>
 
 
@@ -432,68 +276,8 @@
 
     <script>
         // TESTING
-        cargarFormNuevoEmpleado()
-
-        // let imagen_usuario_nuevo
-
-        // function guardarImagenLsBase64(nombre, file) {
-        //     let reader = new FileReader();
-        //     reader.readAsDataURL(file);
-        //     reader.onload = function () {
-        //         sessionStorage.setItem(nombre, reader.result)
-
-        //     };
-        //     reader.onerror = function (error) {
-        //         console.log('Error: ', error);
-        //     };
-        // }
-
-
-        // const input = document.getElementById('dropzone-file');
-        // const file = input.files[0];
-
-        // const reader = new FileReader();
-
-        // reader.addEventListener("load", function () {
-        //     localStorage.setItem("img-new-user", reader.result);
-        //     alert(reader.result)
-        // });
-
-        // input.addEventListener('change', () => {
-        //     console.log(input.value);
-        // })
-
-
-
-
-        // document.gtElementById('dropzone-file').addEventListener('change', async (e) => {
-        //     const archivo = input.files[0]
-        //     if (archivo) {
-        //         sessionStorage.setItem('img-new-user', undefined)
-        //         await guardarImagenLsBase64('img-new-user', archivo);
-
-        //         await cambiarFoto()
-
-
-        //     }
-        // });
-
-        // function cambiarFoto() {
-        //     const zona = document.getElementById('zona-imagen')
-        //     const imgBase64 = sessionStorage.getItem('img-new-user')
-        //     zona.innerHTML = `
-        //         <label for="dropzone-file"
-        //                 class="flex flex-col items-center justify-center cursor-pointer">
-        //             <img class="rounded w-36 h-36 object-cover" src="${imgBase64}">
-        //             <input id="dropzone-file" type="file" class="hidden" />
-        //         </label>
-        //         `
-        // }
-
+        // cargarEmpleadosCrud()
     </script>
 
 </body>
-
-<!-- https://jsbin.com/piqiqecuxo/1/edit?js,console,output -->
-
 </html>

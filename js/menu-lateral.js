@@ -6,8 +6,9 @@ const menuSvgGris = "text-gray-500 dark:text-gray-400"
 const modalNotImpl = document.getElementById('display-not-implemented')
 
 function modalNotImplemented() {
-    modalNotImpl.click()
-    cerrarMenuLateral()
+    // modalNotImpl.click()
+    AbrirPopUp('alerta', 'Oops! Esta funcionalidad aún no se encuentra implementada!')
+    // cerrarMenuLateral()
 }
 
 quitarTodasSelecciones()
@@ -26,7 +27,7 @@ function seleccionMenu(menu) {
     quitarTodasSelecciones()
     estadoMenu(submenu, '+')
 
-    cerrarMenuLateral()
+    // cerrarMenuLateral()
 }
 
 function modEstilos(elemento, operacion, estilos) {
