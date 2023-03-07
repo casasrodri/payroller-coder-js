@@ -6,7 +6,7 @@ const menuSvgGris = "text-gray-500 dark:text-gray-400"
 const modalNotImpl = document.getElementById('display-not-implemented')
 
 function modalNotImplemented() {
-    AbrirPopUp('alerta', 'Oops! Esta funcionalidad aún no se encuentra implementada!')
+    abrirPopUp('alerta', 'Oops! Esta funcionalidad aún no se encuentra implementada!')
     cerrarMenuLateral()
 }
 

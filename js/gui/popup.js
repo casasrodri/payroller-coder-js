@@ -1,6 +1,6 @@
 const modal = document.getElementById('popup-rodri')
 
-function AbrirPopUp(icono, texto) {
+function abrirPopUp(icono, texto) {
 
     let svg = ''
     let color = ''
@@ -14,6 +14,9 @@ function AbrirPopUp(icono, texto) {
                 svg = 'check-circle'
                 color = 'text-green-400 dark:text-green-400'
                 break;
+        case 'error':
+            svg = 'thumbs-down'
+            color = 'text-red-400 dark:text-red-400'
     }
 
     modal.querySelector('#svg-feather').innerHTML = `

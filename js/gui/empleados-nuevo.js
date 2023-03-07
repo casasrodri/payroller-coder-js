@@ -117,6 +117,11 @@ function recapturarElemForm() {
 
 function btnGuardarEmpleado() {
 
+
+    if (!camposValidos()){
+        return undefined
+    }    
+
     let nuevo_id = 0
     getAllEmpleados().forEach( emp => {
         id = emp.legajo
@@ -136,8 +141,22 @@ function btnGuardarEmpleado() {
     empleadosLS.push(nuevoEmpleado)
     guardarEmpLS()
 
-    AbrirPopUp('ok', 'Se dió de alta el nuevo empleado!')
+    abrirPopUp('ok', 'Se dió de alta el nuevo empleado!')
     setTimeout(() => {
         refreshPage()
       }, 3000);
+}
+
+function camposValidos() {
+    const inputs = [fNEnombre, fNEapellido, fNEcargo, fNEsueldo, fNEingreso]
+
+    let valido = true
+    inputs.forEach(inp => {
+        if (inp.value === "") {
+            abrirPopUp('error', 'Se deben completar todos los campos para continuar.')
+            valido = false
+        }
+    })
+
+    return valido
 }
