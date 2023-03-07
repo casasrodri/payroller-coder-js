@@ -3,7 +3,7 @@ function cargarFormNuevoEmpleado() {
 
     recapturarElemForm()
     fNEbtnOk.addEventListener('click', ()=>{ btnGuardarEmpleado() })
-    fNEbtnCancelar.addEventListener('click', ()=>{ cargarEmpleadosCrud() })
+    fNEbtnCancelar.addEventListener('click', ()=>{ cargarEmpleadosAdmin() })
 }
 
 function cargarForm() {

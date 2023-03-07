@@ -6,16 +6,15 @@ const menuSvgGris = "text-gray-500 dark:text-gray-400"
 const modalNotImpl = document.getElementById('display-not-implemented')
 
 function modalNotImplemented() {
-    // modalNotImpl.click()
     AbrirPopUp('alerta', 'Oops! Esta funcionalidad aún no se encuentra implementada!')
-    // cerrarMenuLateral()
+    cerrarMenuLateral()
 }
 
 quitarTodasSelecciones()
 
 function seleccionMenu(menu) {
     if (menu === 'menu-empleados-admin') {
-        cargarEmpleadosCrud()
+        cargarEmpleadosAdmin()
     } else if (menu === 'menu-empleados-consulta') {
         cargarEmpleadosList()
     } else {
@@ -27,7 +26,7 @@ function seleccionMenu(menu) {
     quitarTodasSelecciones()
     estadoMenu(submenu, '+')
 
-    // cerrarMenuLateral()
+    cerrarMenuLateral()
 }
 
 function modEstilos(elemento, operacion, estilos) {
@@ -69,7 +68,12 @@ function quitarTodasSelecciones() {
     submenues.forEach( (menu) => { estadoMenu(menu, '-') })
 }
 
-const hambur = document.getElementById('btn-hamburguer')
+const hide_menu = document.getElementById('hide-menu')
 function cerrarMenuLateral() {
-    hambur.click()
+    hide_menu.click()
 }
+
+const show_menu = document.getElementById('show-menu')
+setTimeout(function() {
+    if (screenSize()['w'] < 640) show_menu.click()
+}, 5)

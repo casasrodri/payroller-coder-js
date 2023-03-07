@@ -19,15 +19,13 @@
 </head>
 
 <body class="bg-white dark:bg-gray-800">
-
-
-    <!-- Modal - No implementado -->
+    <!-- MODAL -->
     <modal>
         <a id="display-popup-rodri" data-modal-target="popup-rodri" data-modal-show="popup-rodri" class="hidden">
         </a>
 
         <div id="popup-rodri" tabindex="-1"
-            class="z-50 fixed top-0 left-0 right-0 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full" ">
+            class="mt-20 md:mt-0 z-50 fixed top-0 left-0 right-0 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full" ">
             <div class=" relative w-full h-full max-w-md md:h-auto">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <button type="button"
@@ -58,18 +56,19 @@
         </div>
     </modal>
 
-
-
-
-
-
+    <!-- BARRA SUPERIOR -->
     <nav
-        class="fixed top-0 z-30 w-full bg-opacity-80 dark:bg-opacity-80 dark:bg-gray-900 bg-gray-100 hover:bg-opacity-100 border-b border-gray-200 dark:border-gray-700">
+        class="fixed top-0 z-50 w-full bg-opacity-80 dark:bg-opacity-80 dark:bg-gray-900 bg-gray-100 hover:bg-opacity-100 border-b border-gray-200 dark:border-gray-700">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
-                    <button id="hide-sidebar" class="hidden" data-drawer-target="logo-sidebar"
-                        data-drawer-toggle="logo-sidebar"></button>
+
+                    <button id="show-menu" class="hidden" data-drawer-target="logo-sidebar"
+                        data-drawer-show="logo-sidebar">Show</button>
+
+                    <button id="hide-menu" class="hidden" data-drawer-target="logo-sidebar"
+                        data-drawer-hide="logo-sidebar">Hide</button>
+
                     <button id="btn-hamburguer" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
                         data-drawer-backdrop="false" aria-controls="logo-sidebar" type="button"
                         class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -123,7 +122,7 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="#"
+                                    <a href="https://github.com/casasrodri"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Perfil</a>
                                 </li>
@@ -142,8 +141,9 @@
         </div>
     </nav>
 
+    <!-- BARRA LATERAL -->
     <aside id="logo-sidebar"
-        class="fixed top-0 left-0 z-20 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
         aria-label="Sidebar">
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
             <ul class="space-y-1" id="menu-lateral">
@@ -230,6 +230,7 @@
         </div>
     </aside>
 
+    <!-- CONTENIDO DINÁMICO -->
     <div class="p-4 sm:ml-64">
         <div class="p-1 mt-12">
             <div class="h-full h-full" id="canvas-contenido">
@@ -254,15 +255,9 @@
         crossorigin="anonymous"></script>
     <script src="./js/icons/feather-icons.js"></script>
 
-    <!-- Date Picker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/datepicker.min.js"></script>
-
     <!-- Funcionalidades -->
     <script src="./js/classes/empleados.js"></script>
     <script src="./js/data/data.js"></script>
-
-
-
 
     <!-- GUI -->
     <script src="./js/gui/popup.js"></script>
@@ -274,10 +269,14 @@
     <script src="./js/menu-lateral.js"></script>
     <script src="./js/main.js"></script>
 
+
+    
+
     <script>
         // TESTING
-        // cargarEmpleadosCrud()
+        // cargarEmpleadosAdmin()
     </script>
 
 </body>
+
 </html>
