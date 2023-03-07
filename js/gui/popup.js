@@ -17,6 +17,9 @@ function abrirPopUp(icono, texto) {
         case 'error':
             svg = 'thumbs-down'
             color = 'text-red-400 dark:text-red-400'
+        case 'cpu':
+            svg = 'cpu'
+            color = 'text-green-400 dark:text-green-400'
     }
 
     modal.querySelector('#svg-feather').innerHTML = `

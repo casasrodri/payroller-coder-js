@@ -25,8 +25,6 @@ empleados_db.forEach( (e) => {
     empleados.push( new Empleado( id_emp, e[0], e[1], e[2], e[3], e[4], id_emp ))
 })
 
-console.log(empleados);
-
 
 // _________________________________________________
 // __________        LOCAL STORAGE        __________

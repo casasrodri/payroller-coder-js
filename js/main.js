@@ -13,3 +13,10 @@ function screenSize() {
     return {w: x, h: y}
 }
 
+function clearLocalStorage() {
+    localStorage.clear()
+    abrirPopUp('cpu', 'Se vació el LocalStorage correctamente!')
+    setTimeout(() => {
+        refreshPage()
+      }, 2000);
+}
