@@ -11,20 +11,22 @@ function abrirPopUp(icono, texto) {
             color = 'text-yellow-400 dark:text-yellow-200'
             break;
         case 'ok':
-                svg = 'check-circle'
-                color = 'text-green-400 dark:text-green-400'
-                break;
+            svg = 'check-circle'
+            color = 'text-green-400 dark:text-green-400'
+            break;
         case 'error':
             svg = 'thumbs-down'
             color = 'text-red-400 dark:text-red-400'
+            break;
         case 'cpu':
             svg = 'cpu'
             color = 'text-green-400 dark:text-green-400'
+            break;
     }
 
     modal.querySelector('#svg-feather').innerHTML = `
     <span data-feather="${svg}"
-    class="mx-auto mb-4  w-14 h-14 hover:scale-110 ${color}">
+    class="mx-auto mb-4 w-14 h-14 hover:scale-110 ${color}">
     </span>
     `
     modal.querySelector('#texto-popup').innerHTML = texto
