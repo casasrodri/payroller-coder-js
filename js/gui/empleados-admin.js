@@ -86,7 +86,8 @@ function lineaEmpleado(emp) {
             <td class="px-6 py-4">
                 <div class="inline-flex rounded-md shadow-sm" role="group">
                 <button type="button"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium border border-gray-200 rounded-l-lg bg-blue-200 hover:bg-blue-100 text-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium border border-gray-200 rounded-l-lg bg-blue-200 hover:bg-blue-100 text-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                    onclick="abrirDrawerVistaEmpleado(${emp.legajo})">
                     <span data-feather="eye" class="w-4 h-4"></span>
                 </button>
                 <button type="button"
