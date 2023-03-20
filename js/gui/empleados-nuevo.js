@@ -143,7 +143,14 @@ function btnGuardarEmpleado() {
     empleadosLS.push(nuevoEmpleado)
     guardarEmpLS()
 
-    abrirPopUp('ok', 'Se dió de alta el nuevo empleado!')
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se ha registrado correctamente el nuevo empleado!',
+        showConfirmButton: false,
+        timer: 2000
+    })
+    
     setTimeout(() => {
         refreshPage()
       }, 3000);
@@ -155,7 +162,13 @@ function camposValidos() {
     let valido = true
     inputs.forEach(inp => {
         if (inp.value === "") {
-            abrirPopUp('error', 'Se deben completar todos los campos para continuar.')
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Se deben completar todos los datos para continuar',
+                showConfirmButton: false,
+                timer: 2000
+            })
             valido = false
         }
     })

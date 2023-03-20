@@ -15,8 +15,24 @@ function screenSize() {
 
 function clearLocalStorage() {
     localStorage.clear()
-    abrirPopUp('cpu', 'Se vació el LocalStorage correctamente!')
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Se vació el LocalStorage correctamente!'
+      })
+
     setTimeout(() => {
         refreshPage()
-      }, 2000);
+      }, 3000);
 }

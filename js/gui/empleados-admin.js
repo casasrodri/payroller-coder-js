@@ -81,7 +81,7 @@ function lineaEmpleado(emp) {
                 ${emp.cargo}
             </td>
             <td class="px-6 py-3">
-                ${emp.fechaIngreso.toLocaleDateString()}
+                ${emp.fecha_ing.toLocaleDateString()}
             </td>
             <td class="px-6 py-4">
                 <div class="inline-flex rounded-md shadow-sm" role="group">

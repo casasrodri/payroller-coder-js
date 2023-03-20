@@ -6,7 +6,23 @@ const menuSvgGris = "text-gray-500 dark:text-gray-400"
 const modalNotImpl = document.getElementById('display-not-implemented')
 
 function modalNotImplemented() {
-    abrirPopUp('alerta', 'Oops! Esta funcionalidad aún no se encuentra implementada!')
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'warning',
+        title: 'Oops! Esta funcionalidad aún no se encuentra implementada!'
+    })
+
     cerrarMenuLateral()
 }
 
@@ -31,18 +47,18 @@ function seleccionMenu(menu) {
 
 function modEstilos(elemento, operacion, estilos) {
     const estilos_split = estilos.split(' ')
-    estilos_split.forEach( (clase) => {
+    estilos_split.forEach((clase) => {
         if (operacion === '+') {
             elemento.classList.add(clase)
         } else if (operacion === '-') {
             elemento.classList.remove(clase)
-        }        
+        }
     })
 }
 
 function estadoMenu(menu, operacion) {
     let svg = menu.querySelector('svg')
-    
+
     if (operacion === '+') {
         // Se añaden estilos azules
         modEstilos(menu, '+', menuTextoAzul)
@@ -65,7 +81,7 @@ function estadoMenu(menu, operacion) {
 
 function quitarTodasSelecciones() {
     const submenues = document.getElementById('menu-lateral').querySelectorAll('a')
-    submenues.forEach( (menu) => { estadoMenu(menu, '-') })
+    submenues.forEach((menu) => { estadoMenu(menu, '-') })
 }
 
 const hide_menu = document.getElementById('hide-menu')
@@ -74,6 +90,6 @@ function cerrarMenuLateral() {
 }
 
 const show_menu = document.getElementById('show-menu')
-setTimeout(function() {
+setTimeout(function () {
     if (screenSize()['w'] < 640) show_menu.click()
 }, 5)
