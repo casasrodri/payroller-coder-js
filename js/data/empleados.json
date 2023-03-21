@@ -9,7 +9,8 @@
         "cargo": "Gerente",
         "sueldo": 482861.61,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "2005-05-17"
+        "fecha_ing": "2005-05-17",
+        "foto": 1
     },
     {
         "nombre": "Paulo",
@@ -21,7 +22,8 @@
         "cargo": "Analista Sr.",
         "sueldo": 236119.33,
         "modalidad": "Plazo Fijo",
-        "fecha_ing": "1990-04-03"
+        "fecha_ing": "1990-04-03",
+        "foto": 2
     },
     {
         "nombre": "Lucrecia",
@@ -33,7 +35,8 @@
         "cargo": "Vendedor",
         "sueldo": 448544.77,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "2020-03-27"
+        "fecha_ing": "2020-03-27",
+        "foto": 3
     },
     {
         "nombre": "Dario",
@@ -45,7 +48,8 @@
         "cargo": "Secretario",
         "sueldo": 280777.19,
         "modalidad": "Plazo Fijo",
-        "fecha_ing": "1988-12-31"
+        "fecha_ing": "1988-12-31",
+        "foto": 4
     },
     {
         "nombre": "Camila",
@@ -57,7 +61,8 @@
         "cargo": "Operario",
         "sueldo": 307918.37,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "1988-09-20"
+        "fecha_ing": "1988-09-20",
+        "foto": 5
     },
     {
         "nombre": "Melisa",
@@ -69,7 +74,8 @@
         "cargo": "Analista Jr.",
         "sueldo": 232042.85,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "1985-09-24"
+        "fecha_ing": "1985-09-24",
+        "foto": 6
     },
     {
         "nombre": "Faustino",
@@ -81,7 +87,8 @@
         "cargo": "Vendedor",
         "sueldo": 347831.65,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "2008-07-01"
+        "fecha_ing": "2008-07-01",
+        "foto": 7
     },
     {
         "nombre": "Pedro",
@@ -93,7 +100,8 @@
         "cargo": "Operario",
         "sueldo": 215381.18,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "2004-09-19"
+        "fecha_ing": "2004-09-19",
+        "foto": 8
     },
     {
         "nombre": "Felipe",
@@ -105,7 +113,8 @@
         "cargo": "Repartidor",
         "sueldo": 342593.88,
         "modalidad": "Plazo Fijo",
-        "fecha_ing": "2014-10-26"
+        "fecha_ing": "2014-10-26",
+        "foto": 9
     },
     {
         "nombre": "Macarena",
@@ -117,7 +126,8 @@
         "cargo": "Pasante",
         "sueldo": 302826.15,
         "modalidad": "Pasantía",
-        "fecha_ing": "1994-01-29"
+        "fecha_ing": "1994-01-29",
+        "foto": 10
     },
     {
         "nombre": "Carolina",
@@ -129,7 +139,8 @@
         "cargo": "Analista Jr.",
         "sueldo": 212769.47,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "2000-09-11"
+        "fecha_ing": "2000-09-11",
+        "foto": 11
     },
     {
         "nombre": "Agustina",
@@ -141,7 +152,8 @@
         "cargo": "Operario",
         "sueldo": 435500.02,
         "modalidad": "Tiempo indeterminado",
-        "fecha_ing": "2004-05-04"
+        "fecha_ing": "2004-05-04",
+        "foto": 12
     },
     {
         "nombre": "Graciela",
@@ -153,6 +165,7 @@
         "cargo": "Vendedor",
         "sueldo": 291803.06,
         "modalidad": "Plazo Fijo",
-        "fecha_ing": "1989-06-18"
+        "fecha_ing": "1989-06-18",
+        "foto": 13
     }
 ]

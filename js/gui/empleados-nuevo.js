@@ -219,27 +219,29 @@ function recapturarElemForm() {
 
 function btnGuardarEmpleado() {
 
-
     if (!camposValidos()){
         return undefined
     }    
 
-    let nuevo_id = 0
+    let ultimo_id = 0
     getAllEmpleados().forEach( emp => {
         id = emp.legajo
-        if (id > nuevo_id) { nuevo_id = emp.legajo }
+        if (id > ultimo_id) { ultimo_id = emp.legajo }
     })
 
-    const nuevoEmpleado = new Empleado( 
-        // TODO ver de hacer bien esta parte para que tome los campos que ingresó el usuario
-        nuevo_id + 1, 
-        fNEnombre.value, 
-        fNEapellido.value, 
-        fNEcargo.value,
-        fNEsueldo.value,
-        fNEingreso.value,
-        0 
-    )
+    const nuevoEmpleado = new Empleado({
+        nombre: fNEnombre.value, 
+        apellido: fNEapellido.value, 
+        dni: fNEdni.value, 
+        telefono: fNEtelefono.value, 
+        fecha_nacim: fNEnacimiento.value, 
+        legajo: ultimo_id + 1, 
+        cargo: fNEcargo.value, 
+        sueldo: fNEsueldo.value, 
+        modalidad: fNEmodalidad.value, 
+        fecha_ing: fNEingreso.value,
+        foto: 0,
+    })
 
     empleadosLS.push(nuevoEmpleado)
     guardarEmpLS()
@@ -247,7 +249,7 @@ function btnGuardarEmpleado() {
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Se ha registrado correctamente el nuevo empleado!',
+        title: 'Empleado dado de alta con éxito!',
         showConfirmButton: false,
         timer: 2000
     })

@@ -1,5 +1,5 @@
 class Empleado {
-    constructor({nombre, apellido, dni, telefono, fecha_nacim, legajo, cargo, sueldo, modalidad, fecha_ing}) {
+    constructor({nombre, apellido, dni, telefono, fecha_nacim, legajo, cargo, sueldo, modalidad, fecha_ing, foto}) {
         this.nombre = nombre
         this.apellido = apellido
         this.dni = dni
@@ -10,7 +10,7 @@ class Empleado {
         this.sueldo = sueldo
         this.modalidad = modalidad
         this.fecha_ing = new Date(fecha_ing)
-        this.foto = legajo
+        this.foto = foto
     }
 
     antiguedad() {

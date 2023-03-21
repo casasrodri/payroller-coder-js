@@ -1,5 +1,6 @@
 // Cargar empleados
 async function cargarEmpleados() {
+    
     const respuesta = await fetch('./js/data/empleados.json')
     const empleados_json = await respuesta.json()
 
@@ -16,13 +17,18 @@ cargarEmpleados()
 // _________________________________________________
 
 
-let empleadosLS
-if (localStorage.getItem('empleadosLS') === null) {
-    empleadosLS = []
-} else {
-    empleadosLS = getEmpleadosLS()
+
+function cargarEmpleadosLs() {
+    if (localStorage.getItem('empleadosLS') === null) {
+        empleadosLS = empleados
+        setTimeout(guardarEmpLS, 1000)
+    } else {
+        empleadosLS = getEmpleadosLS()
+    }
 }
 
+let empleadosLS
+setTimeout(cargarEmpleadosLs(), 1000)
 
 function guardarEmpLS() {
     localStorage.setItem('empleadosLS', JSON.stringify(empleadosLS))
@@ -35,19 +41,20 @@ function getEmpleadosLS() {
 
     const arr = JSON.parse(json)
 
-    arr.forEach( e => e.fechaIngreso = new Date(e.fechaIngreso))
-    return arr
+    arr.forEach( e => e.fecha_ing = new Date(e.fecha_ing))
+    arr.forEach( e => e.fecha_nacim = new Date(e.fecha_nacim))
+
+    const arr_out = []
+    arr.forEach( e => arr_out.push(new Empleado(e)))
+
+    return arr_out
 }
 
 function getAllEmpleados() {
-    const empLocalSto = getEmpleadosLS()
-
-    if (empLocalSto === undefined) return empleados
-    return empleados.concat(getEmpleadosLS())
+    return getEmpleadosLS()
 }
-
 
 // Buscar por legajo
 function buscarEmpleado(legajo) {
-    return empleados.filter( e => e.legajo === Number(legajo))[0]
+    return getAllEmpleados().filter( e => e.legajo === Number(legajo))[0]
 }
