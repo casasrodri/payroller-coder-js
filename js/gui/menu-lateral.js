@@ -33,6 +33,8 @@ function seleccionMenu(menu) {
         cargarEmpleadosAdmin()
     } else if (menu === 'menu-empleados-consulta') {
         cargarEmpleadosList()
+    } else if (menu === 'menu-novedades-alta') {
+        cargarFormAltaNovedad()
     } else {
         modalNotImplemented()
         return

@@ -1,6 +1,6 @@
 let legajoEnModificacion
 function cargarFormEditEmpleado(legajo) {
-    document.getElementById('canvas-contenido').innerHTML = cargarForm()
+    document.getElementById('canvas-contenido').innerHTML = formNuevoEmpleado()
     cargarIconosFeather()
 
     // Se cargan los actuales datos del empleado

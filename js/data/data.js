@@ -16,8 +16,6 @@ cargarEmpleados()
 // __________        LOCAL STORAGE        __________
 // _________________________________________________
 
-
-
 function cargarEmpleadosLs() {
     if (localStorage.getItem('empleadosLS') === null) {
         empleadosLS = empleados

@@ -1,5 +1,5 @@
 function cargarFormNuevoEmpleado() {
-    document.getElementById('canvas-contenido').innerHTML = cargarForm()
+    document.getElementById('canvas-contenido').innerHTML = formNuevoEmpleado()
     cargarIconosFeather()
 
     recapturarElemForm()
@@ -7,7 +7,7 @@ function cargarFormNuevoEmpleado() {
     fNEbtnCancelar.addEventListener('click', ()=>{ cargarEmpleadosAdmin() })
 }
 
-function cargarForm() {
+function formNuevoEmpleado() {
     return `
 
     <div class="relative">
