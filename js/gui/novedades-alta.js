@@ -154,7 +154,7 @@ function btnGuardarNovedad() {
     
     setTimeout(() => {
         seleccionMenu('menu-novedades-admin')
-      }, 2000);
+    }, 2000);
 }
 
 function camposValidosNovedades() {

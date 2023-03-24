@@ -90,5 +90,18 @@ function contenidoTablaNovedades() {
 }
 
 function btnEliminarNovedad(index) {
-    alert(`Se intenta eliminar el ${index + 1} renglón.\n\n${novedadesLS[index]}`)
+    novedadesLS.splice(index, 1)
+    guardarNovLS()
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Novedad eliminada con éxito!',
+        showConfirmButton: false,
+        timer: 2000
+    })
+
+    setTimeout(() => {
+        seleccionMenu('menu-novedades-admin')
+    }, 2000);
 }
