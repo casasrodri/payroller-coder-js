@@ -46,11 +46,6 @@ function paginaNovedadesAdmin() {
     `
 }
 
-let novedadesList = []
-
-novedadesList.push(new Novedad(10, 'Licencia', 'Matrimonio', 10))
-novedadesList.push(new Novedad(11, 'Horas', '50%', 22))
-
 function lineaNovedad(nov, index) {
     return `
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -80,12 +75,12 @@ function lineaNovedad(nov, index) {
 }
 
 function contenidoTablaNovedades() {
-    if (novedadesList.length === 0) { return }
+    if (novedadesLS.length === 0) { return }
 
     let listaHTML = ''
     let index = 0
 
-    novedadesList.forEach(nov => {
+    novedadesLS.forEach(nov => {
         listaHTML += lineaNovedad(nov, index)
         index += 1
     });
@@ -95,5 +90,5 @@ function contenidoTablaNovedades() {
 }
 
 function btnEliminarNovedad(index) {
-    alert(`Se intenta eliminar el ${index + 1} renglón.\n\n${novedadesList[index]}`)
+    alert(`Se intenta eliminar el ${index + 1} renglón.\n\n${novedadesLS[index]}`)
 }

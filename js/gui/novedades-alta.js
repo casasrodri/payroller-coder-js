@@ -125,51 +125,39 @@ function recapturarElemFormAltaNovedad() {
 
 function btnGuardarNovedad() {
 
-    if (!camposValidos()){
+    if (!camposValidosNovedades()){
         return undefined
     }
 
-    alert('Acá se guardarían los datos')
-    console.log({fANempleado, fANnovedad, fANtipo, fANcantidad});
+    const legajo = fANempleado.value
+    const novedad = fANnovedad.value
 
+    let tipo
+    if (novedad === 'Licencias') {
+        tipo = fANtipo.value.replace('Licencia por ','').toProperCase()
+    } else {
+        const exprPorcentaje = /\d+%/
+        tipo = exprPorcentaje.exec(fANtipo.value)[0]
+    }
 
-    // let ultimo_id = 0
-    // getAllEmpleados().forEach( emp => {
-    //     id = emp.legajo
-    //     if (id > ultimo_id) { ultimo_id = emp.legajo }
-    // })
+    const cantidad = fANcantidad.value
+    novedadesLS.push( new Novedad(legajo, novedad, tipo, cantidad) )
+    guardarNovLS()
 
-    // const nuevoEmpleado = new Empleado({
-    //     nombre: fNEnombre.value, 
-    //     apellido: fNEapellido.value, 
-    //     dni: fNEdni.value, 
-    //     telefono: fNEtelefono.value, 
-    //     fecha_nacim: fNEnacimiento.value, 
-    //     legajo: ultimo_id + 1, 
-    //     cargo: fNEcargo.value, 
-    //     sueldo: fNEsueldo.value, 
-    //     modalidad: fNEmodalidad.value, 
-    //     fecha_ing: fNEingreso.value,
-    //     foto: 0,
-    // })
-
-    // empleadosLS.push(nuevoEmpleado)
-    // guardarEmpLS()
-
-    // Swal.fire({
-    //     position: 'center',
-    //     icon: 'success',
-    //     title: 'Empleado dado de alta con éxito!',
-    //     showConfirmButton: false,
-    //     timer: 2000
-    // })
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Novedad dada de alta con éxito!',
+        showConfirmButton: false,
+        timer: 2000
+    })
     
-    // setTimeout(() => {
-    //     refreshPage()
-    //   }, 3000);
+    setTimeout(() => {
+        seleccionMenu('menu-novedades-admin')
+      }, 2000);
 }
 
-function camposValidos() {
+function camposValidosNovedades() {
     const inputs = [
         fANempleado, fANnovedad, fANtipo, fANcantidad
     ]
@@ -194,8 +182,8 @@ function camposValidos() {
 function cargarEmpleadosDesplegable() {
     recapturarElemFormAltaNovedad()
     opciones = '<option></option>'
-    getAllEmpleados().forEach( e => {
-        opciones += `<option>[${e.cargo}] ${e.nombre} ${e.apellido}</option>`
+    getEmpleadosLS().forEach( e => {
+        opciones += `<option value="${e.legajo}">[${e.cargo}] ${e.nombre} ${e.apellido}</option>`
     })
 
     fANempleado.innerHTML = opciones

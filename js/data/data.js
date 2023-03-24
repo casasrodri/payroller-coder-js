@@ -48,11 +48,40 @@ function getEmpleadosLS() {
     return arr_out
 }
 
-function getAllEmpleados() {
-    return getEmpleadosLS()
-}
 
 // Buscar por legajo
 function buscarEmpleado(legajo) {
-    return getAllEmpleados().filter( e => e.legajo === Number(legajo))[0]
+    return getEmpleadosLS().filter( e => e.legajo === Number(legajo))[0]
+}
+
+
+let novedadesLS
+setTimeout(cargarNovedadesLs(), 1000)
+
+function cargarNovedadesLs() {
+    if (localStorage.getItem('novedadesLS') === null) {
+        novedadesLS = []
+        setTimeout(guardarNovLS, 1000)
+    } else {
+        novedadesLS = getNovedadesLS()
+    }
+}
+
+function guardarNovLS() {
+    localStorage.setItem('novedadesLS', JSON.stringify(novedadesLS))
+}
+
+function getNovedadesLS() {
+    const json = localStorage.getItem('novedadesLS')
+
+    if (json === null) return
+
+    const arr = JSON.parse(json)
+
+    const arr_out = []
+    arr.forEach( n => {
+        arr_out.push(new Novedad(n.empleado.legajo, n.novedad, n.tipo, n.cantidad))
+    })
+
+    return arr_out
 }

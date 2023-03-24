@@ -224,7 +224,7 @@ function btnGuardarEmpleado() {
     }    
 
     let ultimo_id = 0
-    getAllEmpleados().forEach( emp => {
+    getEmpleadosLS().forEach( emp => {
         id = emp.legajo
         if (id > ultimo_id) { ultimo_id = emp.legajo }
     })

@@ -106,7 +106,7 @@ function lineaEmpleado(emp) {
     `
 }
 
-function contenidoTabla(empleados=getAllEmpleados()){
+function contenidoTabla(empleados=getEmpleadosLS()){
     let listaHTML = ''
 
     if (empleados.length === 0) {
@@ -128,7 +128,7 @@ function buscar(texto) {
 
     const listaMostrar = []
 
-    getAllEmpleados().forEach( e => {
+    getEmpleadosLS().forEach( e => {
         const alcanceBusqueda = (e.nombre+ e.apellido + e.cargo).toUpperCase()
         if (alcanceBusqueda.includes(texto.toUpperCase())) { listaMostrar.push(e) }
     })
