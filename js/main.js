@@ -38,4 +38,4 @@ function clearLocalStorage() {
 }
 
 
-// cargarFormAltaNovedad()
+// cargarNovedadesAdmin()

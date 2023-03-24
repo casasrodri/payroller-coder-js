@@ -35,6 +35,8 @@ function seleccionMenu(menu) {
         cargarEmpleadosList()
     } else if (menu === 'menu-novedades-alta') {
         cargarFormAltaNovedad()
+    } else if (menu === 'menu-novedades-admin') {
+        cargarNovedadesAdmin()
     } else {
         modalNotImplemented()
         return
