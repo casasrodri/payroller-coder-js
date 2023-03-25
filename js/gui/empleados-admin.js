@@ -1,16 +1,18 @@
 let listadoEmpleados = ""
 
 function cargarEmpleadosAdmin() {
-
+    // Carga la vista de administración de empleados.
     document.getElementById('canvas-contenido').innerHTML = paginaAdmin()
     
     // Se cargan los datos de los TODOS empleados
     contenidoTabla()
 
+    // Se agrega un eventListener para que se actualice mientras se busca
     document.getElementById('table-search').addEventListener('input', e => {buscar(e.target.value)})
 }
 
 function paginaAdmin() {
+    // Devuelve la tabla de empleados vacía y el buscador.
     return `
     <div class="relative">
     <div id="section-title" class="grid gap-3 grid-flow-col auto-cols-auto grid-flow-row auto-rows-min">
@@ -70,8 +72,8 @@ function paginaAdmin() {
     `
 }
 
-
 function lineaEmpleado(emp) {
+    // Devuelve un row de la tabla con los datos del empleado a mostrar
     return `
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -107,6 +109,7 @@ function lineaEmpleado(emp) {
 }
 
 function contenidoTabla(empleados=getEmpleadosLS()){
+    // Pobla la tabla de empleado con cada empleado a mostrar (por defecto, todos)
     let listaHTML = ''
 
     if (empleados.length === 0) {
@@ -120,14 +123,13 @@ function contenidoTabla(empleados=getEmpleadosLS()){
 }
 
 function buscar(texto) {
-
+    // Actualiza la tabla con los resultados de la búsqueda realizada.
     if (texto === "") {
         contenidoTabla()
         return
     }
 
     const listaMostrar = []
-
     getEmpleadosLS().forEach( e => {
         const alcanceBusqueda = (e.nombre+ e.apellido + e.cargo).toUpperCase()
         if (alcanceBusqueda.includes(texto.toUpperCase())) { listaMostrar.push(e) }

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assets/logo.png">
+
     <title>PayRoller</title>
 
     <!-- Tailwind CSS -->
@@ -88,6 +89,11 @@
                                     <a href="https://github.com/casasrodri"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Perfil</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem" onclick="modalNotImplemented()">Soporte</a>
                                 </li>
                                 <li title="Reinicia el localStorage para eliminar cambios temporales.">
                                     <a href="#"
@@ -201,360 +207,64 @@
                 <!---------------------------------->
                 <!-- ACÁ VA EL CONTENIDO DINÁMICO -->
                 <!---------------------------------->
-
-
-                <!-- RECIBO DE SUELDO -->
-
-                <div id="selector-empleado"
-                    class="p-2 border rounded-md border-gray-300 dark:border-gray-600 mt-4 text-gray-800 dark:text-white max-w-xl place-self-center">
-
-                    <div class="mb-3">
-                        <label for="empleado"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Empleado</label>
-                        <select id="empleado"
-                            class="shadow-sm dark:shadow-sm-light bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option></option>
-                            <option>Rodrigo Casas</option>
-                            <option>Paula Griffa</option>
-                            <option>Lucca Casas</option>
-                        </select>
-                    </div>
-
-                    <div class="flex justify-end">
-                        <button type="button" class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-600 dark:hover:bg-teal-700 focus:outline-none dark:focus:ring-teal-800" onclick="document.querySelector('#contenedor-recibo').classList.remove('hidden')">
-                            Generar
-                        </button>
-                    </div>
-                </div>
-
-                <div id="contenedor-recibo"
-                    class="p-2 border rounded-md border-gray-300 dark:border-gray-600 mt-4 text-gray-800 dark:text-white max-w-xl hidden">
-
-                    <div id="renglones" class="mx-2 text-sm">
-
-                        <div id="impresora" class="mr-2 float-right">
-                            <div class="inline-flex rounded-md shadow-sm" role="group">
-                                <button type="button" 
-                                    class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-900 bg-white border bg-blue-200 border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-500 dark:focus:text-white"
-                                    onclick="printDiv()">
-                                    <span data-feather="printer" class="w-4 h-4"></span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div id="renglon1" class="text-center text-lg font-bold mb-4">
-                            RECIBO DE HABERES
-                        </div>
-
-                        <div id="renglon2" class="flex flex-row m-2 gap-3">
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Empleador
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    PayRoller S.A.
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    CUIT
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    209320832938
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="renglon3" class="flex flex-row m-2 gap-3">
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Empleado
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    Rodrigo Casas
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Legajo
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="renglon4" class="flex flex-row m-2 gap-3">
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Cargo
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    Gerente
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Modalidad
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    Tiempo indeterminado
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="renglon5" class="flex flex-row m-2 gap-3">
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Periodo liquidado
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    Marzo 2023
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col basis-1/2">
-                                <div
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 basis-1/2 font-semibold p-1">
-                                    Fecha Ingreso
-                                </div>
-                                <div class="basis-1/2 mt-1">
-                                    23/07/2021
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="tabla" class="max-w-full">
-                        <div class="pr-4 max-w-xl">
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mx-2 max-w-xl mt-4">
-                                <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-500 dark:text-white">
-                                    <tr>
-                                        <th scope="col" class="pl-2 py-2">
-                                            Concepto
-                                        </th>
-                                        <th scope="col" class="py-2">
-                                            Cnt.
-                                        </th>
-                                        <th scope="col" class="py-2 text-right">
-                                            Remunerativo
-                                        </th>
-                                        <th scope="col" class="py-2 text-right pr-2">
-                                            Descuentos
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-medium">
-                                            Sueldo básico
-                                        </th>
-                                        <td class="py-2">
-                                            30 d.
-                                        </td>
-                                        <td class="py-2 text-right">
-                                            232.000,00
-                                        </td>
-                                        <td class="py-2 text-right pr-2">
-                                            -
-                                        </td>
-                                    </tr>
-                                    <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-medium">
-                                            Antiguedad
-                                        </th>
-                                        <td class="py-2">
-                                            37%
-                                        </td>
-                                        <td class="py-2 text-right">
-                                            85.000,00
-                                        </td>
-                                        <td class="py-2 text-right pr-2">
-                                            -
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-medium">
-                                            Aporte Sindical
-                                        </th>
-                                        <td class="py-2">
-                                            2%
-                                        </td>
-                                        <td class="py-2 text-right">
-                                            -
-                                        </td>
-                                        <td class="py-2 text-right pr-2">
-                                            15.000,00
-                                        </td>
-                                    </tr>
-                                    <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-800 whitespace-nowrap dark:text-white font-medium">
-                                            Jubilación
-                                        </th>
-                                        <td class="py-2">
-                                            11%
-                                        </td>
-                                        <td class="py-2 text-right">
-                                            -
-                                        </td>
-                                        <td class="py-2 text-right pr-2">
-                                            35.000,00
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-medium">
-                                            Obra Social
-                                        </th>
-                                        <td class="py-2">
-                                            3%
-                                        </td>
-                                        <td class="py-2 text-right">
-                                            -
-                                        </td>
-                                        <td class="py-2 text-right pr-2">
-                                            10.000,00
-                                        </td>
-                                    </tr>
-                                    <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-medium">
-                                            PAMI
-                                        </th>
-                                        <td class="py-2">
-                                            3%
-                                        </td>
-                                        <td class="py-2 text-right">
-                                            -
-                                        </td>
-                                        <td class="py-2 text-right pr-2">
-                                            10.000,00
-                                        </td>
-                                    </tr>
-
-                                    <!-- TOTALES -->
-                                    <tr
-                                        class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-600 dark:text-white">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-bold">
-
-                                        </th>
-                                        <td class="py-2 font-bold">
-                                            TOTALES
-                                        </td>
-                                        <td class="py-2 text-right font-bold">
-                                            317.000,00
-                                        </td>
-                                        <td class="py-2 text-right pr-2 font-bold">
-                                            70.000,00
-                                        </td>
-                                    </tr>
-
-                                    <!-- NETO -->
-                                    <tr
-                                        class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-500 dark:text-white">
-                                        <th scope="row"
-                                            class="pl-2 py-2 text-gray-900 whitespace-nowrap dark:text-white font-bold">
-
-                                        </th>
-                                        <td class="py-2 font-bold">
-
-                                        </td>
-                                        <td class="py-2 text-right font-bold">
-                                            NETO A COBRAR
-                                        </td>
-                                        <td class="py-2 text-right pr-2 font-bold">
-                                            247.000,00
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-
-                    <div id="zona-firma" class="mt-3 mx-2 h-28 flex items-end place-content-end">
-                        <div id="firma"
-                            class="border-solid border-t-2 text-sm border-gray-300 dark:border-gray-600 text-center pt-1">
-                            <div class="font-semibold">Cr. Alan Turing</div>
-                            <div class="text-gray-400 dark:text-gray-300">Gerente de Recursos Humanos</div>
-                        </div>
-                    </div>
-
-
-                </div>
-
             </div>
         </div>
     </div>
 
 
-    <!-- Drawer Vista Empleado -->
-    <button id="MostrarDrawer" data-drawer-target="drawer-vista-empleado" data-drawer-show="drawer-vista-empleado"
-        data-drawer-placement="right" aria-controls="drawer-vista-empleado" class="hidden">Abrir Drawer</button>
+    <!-- Drawer Vista Empleado (oculto por defecto) -->
+    <div id="drawer-lateral-vista-empleado">
+        <button id="MostrarDrawer" data-drawer-target="drawer-vista-empleado" data-drawer-show="drawer-vista-empleado"
+            data-drawer-placement="right" aria-controls="drawer-vista-empleado" class="hidden">Abrir Drawer</button>
 
-    <div id="drawer-vista-empleado"
-        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-120 dark:bg-gray-800 mt-16"
-        tabindex="-1" aria-labelledby="drawer-vista-empleado">
+        <div id="drawer-vista-empleado"
+            class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-120 dark:bg-gray-800 mt-16"
+            tabindex="-1" aria-labelledby="drawer-vista-empleado">
 
-        <img id="drawer-empleado-img" class="rounded-lg object-cover h-48 w-96 mb-3 mx-3"
-            src="./assets/profile/7.jpg" />
+            <img id="drawer-empleado-img" class="rounded-lg object-cover h-48 w-96 mb-3 mx-3"
+                src="./assets/profile/0.jpg" />
 
-        <h6 id="drawer-empleado-nombre"
-            class="ml-2 inline-flex items-center mb-2 text-base font-semibold dark:text-white text-xl">
-            Rodrigo Casas
-        </h6>
+            <h6 id="drawer-empleado-nombre"
+                class="ml-2 inline-flex items-center mb-2 text-base font-semibold dark:text-white text-xl">
+                NombreEmpleado
+            </h6>
 
-        <input type="hidden" name="legajo-drawer" id="legajo-drawer">
+            <input type="hidden" name="legajo-drawer" id="legajo-drawer">
 
-        <button type="button" data-drawer-hide="drawer-vista-empleado" aria-controls="drawer-vista-empleado"
-            class="bg-gray-200/50 dark:bg-gray-500/50 text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
-            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-            </svg>
-        </button>
+            <button type="button" data-drawer-hide="drawer-vista-empleado" aria-controls="drawer-vista-empleado"
+                class="bg-gray-200/50 dark:bg-gray-500/50 text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
 
-        <div
-            class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px">
-                <li class="mr-1">
-                    <a id="tab-datos-personales" href="#"
-                        class="inline-block p-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        onclick="tablaDatosPersonales()">Datos personales</a>
-                </li>
-                <li class="mr-1">
-                    <a href="#" id="tab-datos-laborales"
-                        class="inline-block p-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        onclick="tablaDatosLaborales()">Datos
-                        laborales</a>
-                </li>
-            </ul>
-        </div>
+            <div
+                class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px">
+                    <li class="mr-1">
+                        <a id="tab-datos-personales" href="#"
+                            class="inline-block p-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                            onclick="tablaDatosPersonales()">Datos personales</a>
+                    </li>
+                    <li class="mr-1">
+                        <a href="#" id="tab-datos-laborales"
+                            class="inline-block p-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                            onclick="tablaDatosLaborales()">Datos
+                            laborales</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <tbody id="tabla-visualizacion-datos">
-                    <!-- ACÁ VAN LOS REGISTROS SEGUN TAB -->
-                </tbody>
-            </table>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <tbody id="tabla-visualizacion-datos">
+                        <!-- ACÁ VAN LOS REGISTROS SEGUN TAB -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -562,6 +272,7 @@
 
     <!-- Flowbite -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    
     <!-- Darkmode toggle -->
     <script src="./js/darkmode/toggle.js"></script>
 
@@ -577,6 +288,7 @@
     <!-- Funcionalidades -->
     <script src="./js/classes/empleados.js"></script>
     <script src="./js/classes/novedades.js"></script>
+    <script src="./js/classes/liquidador.js"></script>
     <script src="./js/data/data.js"></script>
 
     <!-- GUI -->
@@ -586,49 +298,10 @@
     <script src="./js/gui/empleados-edit.js"></script>
     <script src="./js/gui/novedades-alta.js"></script>
     <script src="./js/gui/novedades-admin.js"></script>
-
-
+    <script src="./js/gui/liquidacion.js"></script>
     <script src="./js/gui/menu-lateral.js"></script>
+
     <script src="./js/main.js"></script>
-
-    <script>
-        function printDiv() {
-            document.querySelector('nav').classList.add('hidden')
-            document.querySelector('aside').classList.add('hidden')
-            document.querySelector('#selector-empleado').classList.add('hidden')
-            document.querySelector('#impresora').classList.add('hidden')
-
-            let color = 'light'
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'dark') {
-                    color = 'dark'
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    color = 'dark'
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
-            }
-
-            window.print()
-
-            setTimeout(() => {
-                document.querySelector('nav').classList.remove('hidden')
-                document.querySelector('aside').classList.remove('hidden')
-                document.querySelector('#selector-empleado').classList.remove('hidden')
-                document.querySelector('#impresora').classList.remove('hidden')
-                
-                if (color === 'dark') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }, 0)
-        }
-    </script>
-
 </body>
 
 </html>

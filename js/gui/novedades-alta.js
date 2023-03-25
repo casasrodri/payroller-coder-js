@@ -1,17 +1,18 @@
 function cargarFormAltaNovedad() {
+    // Muestra un formulario para dar de alta una nueva novedad, asociada a un empleado.
     document.getElementById('canvas-contenido').innerHTML = formAltaNovedad()
     cargarIconosFeather()
 
-    // recapturarElemFormAltaNovedad()
     cargarEmpleadosDesplegable()
 
     fANempleado.addEventListener('change', onSelectEmpleado)
-    fANnovedad.addEventListener('change', onSelectLicencia)
+    fANnovedad.addEventListener('change', onSelectNovedad)
     fANbtnOk.addEventListener('click', btnGuardarNovedad)
     fANbtnCancelar.addEventListener('click', refreshPage)
 }
 
 function formAltaNovedad() {
+    // Devuelve el código HTML del formulario de nueva novedad.
     return `
 
     <div class="relative">
@@ -104,16 +105,11 @@ function formAltaNovedad() {
     ` 
 }
 
-// Captura de elementos:
-let fANempleado = document.querySelector('form#altaNovedad #empleado')
-let fANnovedad = document.querySelector('form#altaNovedad #novedad')
-let fANtipo = document.querySelector('form#altaNovedad #tipo')
-let fANcantidad = document.querySelector('form#altaNovedad #cantidad')
-
-let fANbtnOk = document.querySelector('#guardarEmpleado')
-let fANbtnCancelar = document.querySelector('#cancelarGuardarEmpleado')
+// Variables para elementos del form:
+let fANempleado, fANnovedad, fANtipo, fANcantidad, fANbtnOk, fANbtnCancelar
 
 function recapturarElemFormAltaNovedad() {
+    // Se asocia cada input o boton a las variables
     fANempleado = document.querySelector('form#altaNovedad #empleado')
     fANnovedad = document.querySelector('form#altaNovedad #novedad')
     fANtipo = document.querySelector('form#altaNovedad #tipo')
@@ -124,7 +120,7 @@ function recapturarElemFormAltaNovedad() {
 }
 
 function btnGuardarNovedad() {
-
+    // Guarda la novedad en el LS, verificando previamente la integridad de datos.
     if (!camposValidosNovedades()){
         return undefined
     }
@@ -158,6 +154,7 @@ function btnGuardarNovedad() {
 }
 
 function camposValidosNovedades() {
+    // Verifica que no existan campos sin completar
     const inputs = [
         fANempleado, fANnovedad, fANtipo, fANcantidad
     ]
@@ -180,6 +177,7 @@ function camposValidosNovedades() {
 }
 
 function cargarEmpleadosDesplegable() {
+    // Carga cada empleado en la lista desplegable, como opción.
     recapturarElemFormAltaNovedad()
     opciones = '<option></option>'
     getEmpleadosLS().forEach( e => {
@@ -190,6 +188,7 @@ function cargarEmpleadosDesplegable() {
 }
 
 function onSelectEmpleado() {
+    // Al seleccionar el empleado, se habilita el campo de la novedad a cargar.
     recapturarElemFormAltaNovedad()
 
     if (fANempleado.value !== "") {
@@ -213,8 +212,8 @@ const listadoLicencias = [
     'Licencia por vacaciones'
 ]
 
-function onSelectLicencia() {
-
+function onSelectNovedad() {
+    // Al seleccionar la novedad, se cargan las opciones para elegir el tipo de novedad.
     recapturarElemFormAltaNovedad()
 
     if (fANnovedad.value !== "") {

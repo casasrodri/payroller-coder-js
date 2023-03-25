@@ -6,6 +6,7 @@ const menuSvgGris = "text-gray-500 dark:text-gray-400"
 const modalNotImpl = document.getElementById('display-not-implemented')
 
 function modalNotImplemented() {
+    // Muestra alerta de que dicha función no se encuentra implementada.
     const Toast = Swal.mixin({
         toast: true,
         position: 'center',
@@ -29,6 +30,7 @@ function modalNotImplemented() {
 quitarTodasSelecciones()
 
 function seleccionMenu(menu) {
+    // Evalua la opción seleccionada en el menu, para mostrar el contenido elegido.
     if (menu === 'menu-empleados-admin') {
         cargarEmpleadosAdmin()
     } else if (menu === 'menu-empleados-consulta') {
@@ -37,6 +39,8 @@ function seleccionMenu(menu) {
         cargarFormAltaNovedad()
     } else if (menu === 'menu-novedades-admin') {
         cargarNovedadesAdmin()
+    } else if (menu === 'menu-liquidacion') {
+        cargarSeccionLiquidacion()
     } else {
         modalNotImplemented()
         return
@@ -50,6 +54,7 @@ function seleccionMenu(menu) {
 }
 
 function modEstilos(elemento, operacion, estilos) {
+    // Modifica los estilos del elemento seleccionado
     const estilos_split = estilos.split(' ')
     estilos_split.forEach((clase) => {
         if (operacion === '+') {
@@ -61,6 +66,7 @@ function modEstilos(elemento, operacion, estilos) {
 }
 
 function estadoMenu(menu, operacion) {
+    // Altera los estilos, para mostrar que un menú se encuentra o no seleccionado.
     let svg = menu.querySelector('svg')
 
     if (operacion === '+') {
@@ -84,16 +90,19 @@ function estadoMenu(menu, operacion) {
 }
 
 function quitarTodasSelecciones() {
+    // Hace que todos los menues se muestren de-seleccionados
     const submenues = document.getElementById('menu-lateral').querySelectorAll('a')
     submenues.forEach((menu) => { estadoMenu(menu, '-') })
 }
 
 const hide_menu = document.getElementById('hide-menu')
 function cerrarMenuLateral() {
+    // Oculta el menú lateral en pantallas pequeñas
     hide_menu.click()
 }
 
 const show_menu = document.getElementById('show-menu')
 setTimeout(function () {
+    // Si la pantalla es pequeña (menor a 640px, muestra el menú lateral)
     if (screenSize()['w'] < 640) show_menu.click()
 }, 5)

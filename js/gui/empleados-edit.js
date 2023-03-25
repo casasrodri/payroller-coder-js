@@ -1,5 +1,6 @@
 let legajoEnModificacion
 function cargarFormEditEmpleado(legajo) {
+    // Carga el formulario de edición con los datos del empleado seleccionado.
     document.getElementById('canvas-contenido').innerHTML = formNuevoEmpleado()
     cargarIconosFeather()
 
@@ -8,7 +9,6 @@ function cargarFormEditEmpleado(legajo) {
     const empleado = buscarEmpleado(legajo)
 
     document.querySelector('#cell-title h2').textContent = 'Modificar empleado'
-
     recapturarElemForm()
 
     fNEdni.value = empleado.dni
@@ -26,13 +26,8 @@ function cargarFormEditEmpleado(legajo) {
     fNEbtnCancelar.addEventListener('click', () => { cargarEmpleadosAdmin() })
 }
 
-function isoString(fecha) {
-    function pad(n) { return n < 10 ? '0' + n : n }
-    return `${fecha.getUTCFullYear()}-${pad(fecha.getUTCMonth())}-${pad(fecha.getUTCDate())}`
-}
-
 function btnGuardarModifEmpleado() {
-
+    // Elimina el empleado editado, para crear uno nuevo con los datos ingresados por el usuario.
     if (!camposValidos()) {
         return undefined
     }
@@ -73,6 +68,7 @@ function btnGuardarModifEmpleado() {
 
 
 function eliminarEmpleado(legajo) {
+    // Elimina un empleado del array de empleados en memoria.
     for (let i = 0; i < empleadosLS.length; i++) {
         if (empleadosLS[i].legajo === legajo) {
             empleadosLS.splice(i, 1);
@@ -81,6 +77,7 @@ function eliminarEmpleado(legajo) {
 }
 
 function btnEliminarEmpleado(legajo) {
+    // Acciones para el boton de eliminar empleado (confirmación y eliminación)
     const empl = buscarEmpleado(legajo)
 
     Swal.fire({

@@ -1,4 +1,5 @@
 class Novedad {
+    // Representa una novedad a incluirse en la liquidación de haberes de un empleado.
     constructor(legajo, novedad, tipo, cantidad) {
         this.empleado = buscarEmpleado(legajo)
         this.novedad = novedad

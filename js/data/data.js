@@ -1,4 +1,4 @@
-// Cargar empleados
+// Cargar de empleados del JSON local
 async function cargarEmpleados() {
     
     const respuesta = await fetch('./js/data/empleados.json')
@@ -12,11 +12,10 @@ async function cargarEmpleados() {
 let empleados = []
 cargarEmpleados()
 
-// _________________________________________________
-// __________        LOCAL STORAGE        __________
-// _________________________________________________
+// Empleados: Manejo del Local Storage
 
 function cargarEmpleadosLs() {
+    // Carga empleados del LS, si existen, sino del JSON
     if (localStorage.getItem('empleadosLS') === null) {
         empleadosLS = empleados
         setTimeout(guardarEmpLS, 1000)
@@ -29,10 +28,12 @@ let empleadosLS
 setTimeout(cargarEmpleadosLs(), 1000)
 
 function guardarEmpLS() {
+    // Guarda empleados en el LS
     localStorage.setItem('empleadosLS', JSON.stringify(empleadosLS))
 }
 
 function getEmpleadosLS() {
+    // Obtiene del LS los empleados y genera objetos a partir de dicha informacion.
     const json = localStorage.getItem('empleadosLS')
 
     if (json === null) return
@@ -51,6 +52,7 @@ function getEmpleadosLS() {
 
 // Buscar por legajo
 function buscarEmpleado(legajo) {
+    // Dado un legajo, devuelve el objeto Empleado existente.
     return getEmpleadosLS().filter( e => e.legajo === Number(legajo))[0]
 }
 
@@ -59,6 +61,7 @@ let novedadesLS
 setTimeout(cargarNovedadesLs(), 1000)
 
 function cargarNovedadesLs() {
+    // Carga novedades del LS, si existen, sino del JSON
     if (localStorage.getItem('novedadesLS') === null) {
         novedadesLS = []
         setTimeout(guardarNovLS, 1000)
@@ -68,10 +71,12 @@ function cargarNovedadesLs() {
 }
 
 function guardarNovLS() {
+    // Guarda novedades en el LS
     localStorage.setItem('novedadesLS', JSON.stringify(novedadesLS))
 }
 
 function getNovedadesLS() {
+    // Obtiene del LS las novedades y genera objetos a partir de dicha informacion.
     const json = localStorage.getItem('novedadesLS')
 
     if (json === null) return

@@ -1,4 +1,5 @@
 class Empleado {
+    // Esta clase engloba los atributos y métodos relativos a los empleados del sistema.
     constructor({nombre, apellido, dni, telefono, fecha_nacim, legajo, cargo, sueldo, modalidad, fecha_ing, foto}) {
         this.nombre = nombre
         this.apellido = apellido

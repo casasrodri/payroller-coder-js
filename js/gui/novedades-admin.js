@@ -1,10 +1,13 @@
 function cargarNovedadesAdmin() {
+    // Se carga una tabla que muestra todas las novedades ingresadas, con opción para eliminarlas
     document.getElementById('canvas-contenido').innerHTML = paginaNovedadesAdmin()
+
     // Se cargan los datos de TODAS las novedades
     contenidoTablaNovedades()
 }
 
 function paginaNovedadesAdmin() {
+    // Devuelve el código HTML con la tabla base para mostrar novedades
     return `
     <div class="relative">
     <div id="section-title" class="grid gap-3 grid-flow-col auto-cols-auto grid-flow-row auto-rows-min">
@@ -47,6 +50,7 @@ function paginaNovedadesAdmin() {
 }
 
 function lineaNovedad(nov, index) {
+    // Devuelve el código HTML para mostrar en cada fila de la tabla, la novedad.
     return `
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -75,6 +79,7 @@ function lineaNovedad(nov, index) {
 }
 
 function contenidoTablaNovedades() {
+    // Muestra las novedades existentes, dentro de una tabla
     if (novedadesLS.length === 0) { return }
 
     let listaHTML = ''
@@ -90,6 +95,7 @@ function contenidoTablaNovedades() {
 }
 
 function btnEliminarNovedad(index) {
+    // Dada el indice de una novedad dentro del array, se la elimina y luego guarda el LS.
     novedadesLS.splice(index, 1)
     guardarNovLS()
 

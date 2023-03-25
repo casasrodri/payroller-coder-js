@@ -1,4 +1,5 @@
 function cargarFormNuevoEmpleado() {
+    // Carga el formulario con campos necesarios para dar de alta un nuevo empleado, agregado eventListeners
     document.getElementById('canvas-contenido').innerHTML = formNuevoEmpleado()
     cargarIconosFeather()
 
@@ -8,6 +9,7 @@ function cargarFormNuevoEmpleado() {
 }
 
 function formNuevoEmpleado() {
+    // Devuelve el código HTML del formulario de nuevo empleado.
     return `
 
     <div class="relative">
@@ -186,22 +188,12 @@ function formNuevoEmpleado() {
     ` 
 }
 
-// Captura de elementos:
-let fNEdni = document.querySelector('form#altaEmpleado #dni')
-let fNEnombre = document.querySelector('form#altaEmpleado #nombre')
-let fNEapellido = document.querySelector('form#altaEmpleado #apellido')
-let fNEtelefono = document.querySelector('form#altaEmpleado #telefono')
-let fNEnacimiento = document.querySelector('form#altaEmpleado #fechaNacimiento')
-
-let fNEcargo = document.querySelector('form#altaEmpleado #cargo')
-let fNEmodalidad = document.querySelector('form#altaEmpleado #modalidad')
-let fNEsueldo = document.querySelector('form#altaEmpleado #sueldo')
-let fNEingreso = document.querySelector('form#altaEmpleado #fechaIngreso')
-let fNEbtnOk = document.querySelector('#guardarEmpleado')
-let fNEbtnCancelar = document.querySelector('#cancelarGuardarEmpleado')
+// Variables para elementos del form:
+let fNEdni, fNEnombre, fNEapellido, fNEtelefono, fNEnacimiento, fNEcargo, fNEmodalidad, fNEsueldo, fNEingreso, fNEbtnOk, fNEbtnCancelar
 
 
 function recapturarElemForm() {
+    // Se asocia cada input o boton a las variables
     fNEdni = document.querySelector('form#altaEmpleado #dni')
     fNEnombre = document.querySelector('form#altaEmpleado #nombre')
     fNEapellido = document.querySelector('form#altaEmpleado #apellido')
@@ -218,6 +210,7 @@ function recapturarElemForm() {
 }
 
 function btnGuardarEmpleado() {
+    // Guarda el empleado en el LS, verificando previamente la integridad de datos.
 
     if (!camposValidos()){
         return undefined
@@ -260,6 +253,7 @@ function btnGuardarEmpleado() {
 }
 
 function camposValidos() {
+    // Verifica que no existan campos sin completar
     const inputs = [
         fNEdni, fNEnombre, fNEapellido, fNEtelefono, fNEnacimiento,
         fNEcargo, fNEmodalidad, fNEsueldo, fNEingreso

@@ -1,14 +1,22 @@
+function cargarEmpleadosList() {
+    // Carga una vista con cada empleado existente, mostrado como tarjeta
+    document.getElementById('canvas-contenido').innerHTML = renderizarCardsEmpleados(getEmpleadosLS())
+    cargarIconosFeather()
+}
 
-function contenedorCards(contenido) {
-    // auto-cols-max
-    return `
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gid-cols-4 2xl:grid-cols-5 auto-rows-auto grid-flow-dense gap-5 mt-3 "> 
-        ${contenido}
-    </div>
-    `
+function renderizarCardsEmpleados(setEmpleados) {
+    // Genera tarjetas con cada empleado existente
+    let tarjetasEmpleados = ""
+
+    setEmpleados.forEach((emp) => {
+        tarjetasEmpleados += cardEmpleado(emp)
+    })
+
+    return contenedorCards(tarjetasEmpleados)
 }
 
 function cardEmpleado(empleado) {
+    // Devuelve una tarjeta HMTL con datos del empleado pasado por parámetro
     return `
     <div class="cursor-pointer max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700 hover:brightness-125"
         onclick="abrirDrawerVistaEmpleado(${empleado.legajo})"
@@ -27,11 +35,24 @@ function cardEmpleado(empleado) {
         </div>
     </div>
     `
-    
 }
 
+function contenedorCards(contenido) {
+    // Genera una sección para mostrar cada tarjeta con datos del empleado
+    return `
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gid-cols-4 2xl:grid-cols-5 auto-rows-auto grid-flow-dense gap-5 mt-3 "> 
+        ${contenido}
+    </div>
+    `
+}
+
+
+// PANEL LATERAL DE VISUALIZACION DE EMPLEADOS
+
 let legajoDrawer = document.getElementById('legajo-drawer')
+
 function abrirDrawerVistaEmpleado(legajo) {
+    // Abre un panel lateral con datos del empleado
     legajoDrawer.value = legajo
 
     cargarDatosEncabezadoDrawer()
@@ -40,25 +61,8 @@ function abrirDrawerVistaEmpleado(legajo) {
     document.getElementById('MostrarDrawer').click()
 }
 
-function renderizarCardsEmpleados(setEmpleados) {
-
-    let tarjetasEmpleados = ""
-    setEmpleados.forEach((emp) => {
-        tarjetasEmpleados += cardEmpleado(emp)
-    })
-
-    return contenedorCards(tarjetasEmpleados)
-}
-
-function cargarEmpleadosList() {
-    document.getElementById('canvas-contenido').innerHTML = renderizarCardsEmpleados(getEmpleadosLS())
-    cargarIconosFeather()
-}
-
-
-
-
 function rowClaveValor(clave, valor) {
+    // Función auxiliar para generar cada fila de la tabla de datos (personales o laborales)
     return `
     <tr class="border-b border-gray-200 dark:border-gray-700">
         <th scope="row"
@@ -72,7 +76,6 @@ function rowClaveValor(clave, valor) {
     `
 }
 
-
 // Tabs y estilos
 const tabDatosPersonales = document.getElementById('tab-datos-personales')
 const tabDatosLaborales = document.getElementById('tab-datos-laborales')
@@ -81,16 +84,15 @@ const estilosTabActiva = "inline-block p-2 text-blue-600 border-b-2 border-blue-
 const estilosTabInactiva = "inline-block p-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
 
 function cargarDatosEncabezadoDrawer(){
-    
+    // Carga la imagen y datos del empleado que se muestra en la vista lateral    
     const empleado = buscarEmpleado(legajoDrawer.value)
+
     document.getElementById('drawer-empleado-img').src = `./assets/profile/${empleado.foto}.jpg`
     document.getElementById('drawer-empleado-nombre').innerText = `${empleado.nombre} ${empleado.apellido}`
 }
 
-
-
 function tablaDatosPersonales(){
-
+    // Muestra una tabla con los datos personales del empleado.
     const empleado = buscarEmpleado(legajoDrawer.value)
 
     tabDatosPersonales.classList = estilosTabActiva
@@ -109,7 +111,7 @@ function tablaDatosPersonales(){
 }
 
 function tablaDatosLaborales(){
-
+    // Muestra una tabla con los datos laborales del empleado.
     const empleado = buscarEmpleado(legajoDrawer.value)
 
     tabDatosPersonales.classList = estilosTabInactiva
