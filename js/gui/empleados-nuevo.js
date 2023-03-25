@@ -248,7 +248,7 @@ function btnGuardarEmpleado() {
     })
     
     setTimeout(() => {
-        refreshPage()
+        seleccionMenu('menu-empleados-admin')
       }, 3000);
 }
 
